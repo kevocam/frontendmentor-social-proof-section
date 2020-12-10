@@ -1,0 +1,337 @@
+
+$color-principal-pink:hsl(333, 80%, 67%);
+$color-principal-darkMagenta: hsl(300, 43%, 22%);
+$color-secundario-dark:hsl(303, 10%, 53%);
+$color-secundario-light:hsl(300, 24%, 96%);
+
+@mixin breakpoint($class) {
+    @if $class == xs {
+      @media (max-width: 375px) { @content; }
+    }
+   
+    @else if $class == sm {
+      @media (max-width: 768px) { @content; }
+    }
+   
+    @else if $class == md {
+      @media (max-width: 1024px) { @content; }
+    }
+   
+    @else if $class == lg {
+      @media (min-width: 1440px) { @content; }
+    }
+   
+    @else {
+      @warn "Breakpoint mixin supports: xs, sm, md, lg";
+    }
+  }
+
+/* --USE */
+/* @include breakpoint(sm) {
+    float: none;
+    width: 100%;
+  } */
+
+@import url('https://fonts.googleapis.com/css2?family=Spartan:wght@400;500;700&display=swap');
+
+*{
+    margin:0;
+    padding:0px;
+    box-sizing:bor
+}
+body{
+    font-family: 'Spartan', sans-serif;
+    font-size:15px;
+    margin: 70px 120px; 
+    padding: 0px;    
+    color: var(--color-principal-darkMagenta);
+    @include breakpoint(md) {
+        margin: 0px 3%; 
+        padding: 60px 0px;  
+    }
+    @include breakpoint(sm) {
+        margin: 0px 7.5%; 
+        padding: 20px 0px;  
+    }
+    @include breakpoint(xs) {
+        margin: 0px 7.5%; 
+        padding: 20px 0px;  
+    }
+    
+    
+    
+
+}
+.header{
+    display:flex;
+    justify-content: space-between;
+    flex-wrap: wrap;    
+    
+    .text{
+        width:500px;
+        @include breakpoint(md) { 
+            width: 40%;
+        }
+        @include breakpoint(sm) {   
+            padding-top:60px;    
+            width:100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+        }
+        @include breakpoint(xs) {   
+            padding-top:60px;    
+            width:100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+        }
+       
+       
+        h1{
+            font-size: 45px;
+            font-weight:700;
+            color:  $color-principal-darkMagenta;
+            margin-bottom:10px;  
+            @include breakpoint(xs) {
+                width: 80%;
+                text-align: center;
+                align-self: center;
+               font-size: 30px;
+                font-weight: 700;
+            }  
+            @include breakpoint(sm) {
+                width: 80%;
+                text-align: center;
+                align-self: center;
+               font-size: 30px;
+                font-weight: 700;
+            }         
+        }
+        span{
+            color:$color-secundario-dark;
+            font-weight: 400;
+            line-height: 25px;
+            @include breakpoint(md) {
+                width:50%; 
+            }
+            @include breakpoint(sm) {
+                width: 100%;
+                font-size: 14px;
+                margin:15px 0px;
+             } 
+            @include breakpoint(xs) {
+                width: 100%;
+                font-size: 14px;
+                margin:15px 0px;
+             }  
+             
+             
+        }
+        
+    }
+    .rates{        
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+         @include breakpoint(xs) {       
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            margin:20px 0px 10px 0px;
+        }   
+        @include breakpoint(sm) {       
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            margin:20px 0px 10px 0px;
+        } 
+        &__item{            
+            background-color: $color-secundario-light;
+            padding:20px 40px ;             
+            border-radius:15px;
+            display: flex;
+            width: 400px; 
+            @include breakpoint(xs) {       
+                width: 100%;                
+                padding:15px 5px;
+                margin:12px auto;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+            @include breakpoint(sm) {       
+                width: 100%;                
+                padding:15px 5px;
+                margin:12px auto;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }           
+
+            &--starts{
+                width:100px;
+                display: flex;
+                justify-content: space-around;
+                img{
+                    margin: 0 5px 0 0;
+                }
+                
+            }        
+            &--text{
+                color:$color-principal-darkMagenta;
+                font-weight: 600;
+                margin: 0 0 0 35px;
+                @include breakpoint(xs) {
+                   padding:15px 0px 2px 0px;                 
+                    width: 100%;
+                    text-align: center;
+                    margin:0px;
+                }    
+                @include breakpoint(sm) {
+                    padding:15px 0px 2px 0px;                 
+                     width: 100%;
+                     text-align: center;
+                     margin:0px;
+                 }              
+            }
+        &:nth-child(1){
+            margin-left:-100px; 
+            @include breakpoint(xs) {       
+                margin-left:0px; 
+            }
+            @include breakpoint(md) {       
+                margin-left:-30px; 
+            }
+            @include breakpoint(sm) {       
+                margin-left:0px; 
+            }
+            
+            
+            }
+        &:nth-child(2){
+            margin-left:-50px; 
+            @include breakpoint(xs) {       
+                margin-left:0px; 
+                
+            }
+            @include breakpoint(md) {       
+                margin-left:-20px; 
+            }
+            @include breakpoint(sm) {       
+                margin-left:0px; 
+            }
+            
+            
+            }
+        }
+        
+    }
+}
+.main{
+    width: 100%;
+/*     min-width: 320px;
+ */    display: flex;
+    justify-content: space-between;    
+    flex-wrap: wrap;
+    margin-top:30px;
+}
+.card{    
+    padding:30px 25px; 
+    width: 335px;
+    height: 170px;
+    background-color:$color-principal-darkMagenta;
+    border-radius:10px;
+    border:none;   
+    @include breakpoint(md) {
+        width: 250px;
+        height: auto;
+        margin-bottom: 15px;
+     
+    } 
+    @include breakpoint(xs) {
+            height: auto;
+            margin-bottom: 15px;
+         
+     }   
+     @include breakpoint(sm) {
+        height: auto;
+        margin-bottom: 15px;
+        width: 100%;       
+    } 
+    
+    &__title{
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        font-weight: 600;
+        line-height: 17px;
+        &--img{            
+            img{
+                width: 40px;
+                border-radius:50%;
+             }
+        }
+        &--nombre{
+            padding-left: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color:$color-secundario-light;
+            span{
+                color:$color-principal-pink;
+                font-weight: 400;
+                margin-top:5px;
+                
+            }
+        }
+    }
+    &__content{
+        margin-top:35px;
+        color:$color-secundario-light;
+        font-size:15px;
+        line-height: 22px;        
+        @include breakpoint(xs) { 
+            margin-top:25px;              
+            font-size: 13px;  
+            line-height: 18px;          
+        }
+        @include breakpoint(sm) { 
+            margin-top:25px;              
+            font-size: 13px;  
+            line-height: 18px;          
+        }
+
+
+    }
+    &:nth-child(2){
+        margin-top:15px; 
+        @include breakpoint(xs) {       
+        
+            margin-top:0px; 
+            
+            }
+        @include breakpoint(sm) {       
+    
+            margin-top:0px; 
+            
+            }
+        }
+    &:nth-child(3){
+        margin-top:30px; 
+        @include breakpoint(xs) {       
+        
+            margin-top:0px; 
+            
+            }
+        @include breakpoint(sm) {       
+    
+            margin-top:0px; 
+            
+            }
+        }
+
+    
+}
