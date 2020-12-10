@@ -17,6 +17,8 @@
 
 ## Welcome my Friends! 👋
 
+Puedes verlo en vivo y en directo [aquí](https://kevocam.github.io/frontendmentor-social-proof-section/)
+
 Este reto lo hice con SASS, puedes modificarlo a tu manera.  🤙🤙
 
 SALUDOS
